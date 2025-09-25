@@ -93,6 +93,6 @@ jobs:
           workingDir: ./
           buildScriptName: build-storybook
           onlyChanged: true
-          exitZeroOnChanges: true
+          exitZeroOnChanges: false
           exitOnceUploaded: true
           ignoreLastBuildOnBranch: main

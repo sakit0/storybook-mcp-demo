@@ -12,7 +12,7 @@
     "format": "prettier . --write",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "check": "pnpm run lint && pnpm run typecheck",
-    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN"
+    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "keywords": [],
   "author": "",
