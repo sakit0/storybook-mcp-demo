@@ -1,36 +1,35 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button, type ButtonProps } from "./Button";
+import { Button, type ButtonProps } from './Button'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<ButtonProps> = {
-  title: "Components/Button",
+  title: 'Components/Button',
   component: Button,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: { type: "select" },
-      options: ["primary", "secondary", "danger"],
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'danger'],
     },
-    onClick: { action: "clicked" },
+    onClick: { action: 'clicked' },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<ButtonProps>;
+export default meta
+type Story = StoryObj<ButtonProps>
 
 export const Primary: Story = {
-  args: { label: "Primary Buttons", variant: "primary" },
-};
+  args: { label: 'Primary Buttons', variant: 'primary' },
+}
 
 export const Secondary: Story = {
-  args: { label: "Secondary Button", variant: "secondary" },
-};
+  args: { label: 'Secondary Button', variant: 'secondary' },
+}
 
 export const Danger: Story = {
-  args: { label: "Delete", variant: "danger" },
-};
+  args: { label: 'Delete', variant: 'danger' },
+}
 
 export const Disabled: Story = {
-  args: { label: "Disabled", disabled: true },
-};
-
-
+  args: { label: 'Disabled', disabled: true },
+}
