@@ -1,0 +1,6 @@
+{
+  "projectToken": "env:CHROMATIC_PROJECT_TOKEN",
+  "exitOnceUploaded": true,
+  "onlyChanged": true
+}
+
