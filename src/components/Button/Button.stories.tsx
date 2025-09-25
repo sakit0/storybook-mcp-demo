@@ -23,7 +23,7 @@ export const Primary: Story = {
 }
 
 export const Secondary: Story = {
-  args: { label: 'Secondary Button', variant: 'secondary' },
+  args: { label: 'Secondary', variant: 'secondary' },
 }
 
 export const Danger: Story = {
