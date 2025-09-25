@@ -1,23 +1,12 @@
 import React from 'react'
+import { cn } from '../../utils/cn'
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger'
 
-const stylesByVariant: Record<ButtonVariant, React.CSSProperties> = {
-  primary: {
-    backgroundColor: '#1ea7fd',
-    color: '#ffffff',
-    border: '1px solid #1ea7fd',
-  },
-  secondary: {
-    backgroundColor: 'transparent',
-    color: '#333333',
-    border: '1px solid #cccccc',
-  },
-  danger: {
-    backgroundColor: '#e5484d',
-    color: '#ffffff',
-    border: '1px solid #e5484d',
-  },
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: 'bg-primary-600 text-white border-primary-600 hover:bg-primary-700 focus:ring-primary-500',
+  secondary: 'bg-transparent text-gray-700 border-gray-300 hover:bg-gray-50 focus:ring-gray-500',
+  danger: 'bg-danger-600 text-white border-danger-600 hover:bg-danger-700 focus:ring-danger-500',
 }
 
 export interface ButtonProps {
@@ -26,7 +15,8 @@ export interface ButtonProps {
   variant?: ButtonVariant
   disabled?: boolean
   fullWidth?: boolean
-  style?: React.CSSProperties
+  className?: string
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export function Button({
@@ -35,31 +25,26 @@ export function Button({
   variant = 'primary',
   disabled = false,
   fullWidth = false,
-  style,
+  className,
+  type = 'button',
 }: ButtonProps) {
-  const baseStyle: React.CSSProperties = {
-    fontFamily: 'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto',
-    fontSize: 14,
-    padding: '8px 14px',
-    borderRadius: 6,
-    cursor: disabled ? 'not-allowed' : 'pointer',
-    opacity: disabled ? 0.6 : 1,
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    width: fullWidth ? '100%' : undefined,
-    transition: 'background-color .15s ease, color .15s ease, opacity .15s ease',
-  }
-
-  const mergedStyle: React.CSSProperties = {
-    ...baseStyle,
-    ...stylesByVariant[variant],
-    ...style,
-  }
+  const baseClasses = [
+    'font-sans text-sm px-3.5 py-2 rounded-md',
+    'inline-flex items-center justify-center gap-2',
+    'border transition-all duration-150 ease-in-out',
+    'focus:outline-none focus:ring-2 focus:ring-offset-2',
+    'disabled:cursor-not-allowed disabled:opacity-60',
+    fullWidth ? 'w-full' : '',
+    variantClasses[variant],
+  ]
 
   return (
-    <button type="button" style={mergedStyle} onClick={onClick} disabled={disabled}>
+    <button
+      type={type}
+      className={cn(baseClasses, className)}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {label}
     </button>
   )

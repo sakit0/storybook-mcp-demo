@@ -61,7 +61,10 @@ export default defineConfig([
     },
   },
   ...storybook.configs['flat/recommended'],
-  { files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'], rules: { 'storybook/no-renderer-packages': 'off' } },
+  {
+    files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+    rules: { 'storybook/no-renderer-packages': 'off' },
+  },
   {
     files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
     rules: {
