@@ -19,7 +19,7 @@ export default meta
 type Story = StoryObj<ButtonProps>
 
 export const Primary: Story = {
-  args: { label: 'Primary Buttons', variant: 'primary' },
+  args: { label: 'Primary Button', variant: 'primary' },
 }
 
 export const Secondary: Story = {
